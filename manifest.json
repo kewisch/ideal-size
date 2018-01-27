@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "name": "Ideal Size",
+  "short_name": "Ideal Size",
+  "description": "Resize the window to the most ideal size",
+  "version": "1.0.1",
+  "applications": {
+    "gecko": {
+      "id": "idealsize@mozilla.kewis.ch"
+    }
+  },
+
+  "icons": {
+    "16": "images/addon.svg",
+    "32": "images/addon.svg",
+    "48": "images/addon.svg",
+    "128": "images/addon.svg"
+  },
+
+  "permissions": [
+    "activeTab",
+    "tabs"
+  ],
+
+  "page_action": {
+    "default_icon": "images/addon.svg",
+    "default_title": "Ideal Size",
+    "browser_style": false
+  },
+
+  "background": {
+    "scripts": [
+      "background/browser-polyfill.min.js",
+      "background/background.js"
+    ]
+  }
+}
