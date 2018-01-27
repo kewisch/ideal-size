@@ -19,33 +19,25 @@ browser.pageAction.onClicked.addListener((tab) => {
   });
 });
 
-browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (!tab || !tab.url) {
-    return;
-  }
+if (navigator.userAgent.includes("Chrome") || parseInt((navigator.userAgent.match(/Firefox\/([0-9]+)/) || [])[1], 10) < 59) {
+  let urlmatches = browser.runtime.getManifest().page_action.show_matches.map(pattern => {
+    return pattern.replace(/\*/, "");
+  });
 
-  updatePageAction(tab);
-});
+  let updateTab = (tab) => {
+    if (tab.url && urlmatches.some(match => tab.url.startsWith(match))) {
+      browser.pageAction.show(tab.id);
+    } else {
+      browser.pageAction.hide(tab.id);
+    }
+  };
 
-function updatePageAction(tab) {
-  let url = new URL(tab.url);
-  let show = false;
-  switch (url.hostname) {
-    case "docs.google.com":
-      if (url.pathname.startsWith("/document")) {
-        show = true;
-      }
-      break;
-    case "bugzilla.mozilla.org":
-    case "github.com":
-    case "developer.mozilla.org":
-      show = true;
-      break;
-  }
+  browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+    updateTab(tab);
+  });
 
-  if (show) {
-    browser.pageAction.show(tab.id);
-  } else {
-    browser.pageAction.hide(tab.id);
-  }
+  browser.tabs.onActivated.addListener(async ({ tabId }) => {
+    let tab = await browser.tabs.get(tabId);
+    updateTab(tab);
+  });
 }
