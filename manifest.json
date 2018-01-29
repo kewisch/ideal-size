@@ -11,10 +11,11 @@
   },
 
   "icons": {
-    "16": "images/addon.svg",
-    "32": "images/addon.svg",
-    "48": "images/addon.svg",
-    "128": "images/addon.svg"
+    "16": "images/addon16.png",
+    "32": "images/addon32.png",
+    "48": "images/addon48.png",
+    "64": "images/addon64.png",
+    "128": "images/addon128.png"
   },
 
   "permissions": [
