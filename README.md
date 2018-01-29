@@ -1,7 +1,7 @@
 Idealsize
 =========
 
-This is the source code for the [Idealsize](https://addons.mozilla.org/addon/idealsize/) add-on.
+This is the source code for the [Ideal Size](https://addons.mozilla.org/addon/ideal-size/) add-on.
 
 
 I'm taking pull requests that add new pages with ideal dimensions. I'd
