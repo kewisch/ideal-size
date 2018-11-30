@@ -3,7 +3,7 @@
   "name": "Ideal Size",
   "short_name": "Ideal Size",
   "description": "Resize the window to the most ideal size",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "applications": {
     "gecko": {
       "id": "idealsize@mozilla.kewis.ch"
