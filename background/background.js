@@ -5,13 +5,19 @@
 
 browser.pageAction.onClicked.addListener((tab) => {
   browser.tabs.executeScript(tab.id, { file: "/content/determineSize.js" }).then(([sizeinfo]) => {
-    browser.windows.get(tab.windowId).then((window) => {
+    browser.windows.get(tab.windowId).then((win) => {
       let changeinfo = {};
       if (sizeinfo.width) {
-        changeinfo.width = sizeinfo.width + (window.width - sizeinfo.innerWidth);
+        changeinfo.width = sizeinfo.width + (win.width - sizeinfo.innerWidth);
       }
       if (sizeinfo.height) {
-        changeinfo.height = sizeinfo.height + (window.height - sizeinfo.innerHeight);
+        changeinfo.height = sizeinfo.height + (win.height - sizeinfo.innerHeight);
+      }
+
+      // Take away from the left side of the window if we are on the right side of the screen.
+      let center = win.left + (win.width / 2)
+      if (center > screen.width / 2) {
+        changeinfo.left = win.left - (changeinfo.width - win.width);
       }
 
       browser.windows.update(tab.windowId, changeinfo);
