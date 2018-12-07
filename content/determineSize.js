@@ -24,6 +24,10 @@ function determineSize() {
     case "developer.mozilla.org":
       size.width = 1450;
       break;
+    case "www.di.fm":
+      size.width = 450;
+      size.height = 600;
+      break;
   }
 
   size.innerWidth = window.innerWidth;
