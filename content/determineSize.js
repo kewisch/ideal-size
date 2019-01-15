@@ -11,7 +11,7 @@ function determineSize() {
       let commentwidth = firstcomment ? firstcomment.offsetWidth + 24 : 0;
 
       // 163 is the min width of the sidebar, don't want more than that
-      size.width = Math.min(sidebarwidth, 163) + pagewidth + commentwidth + + companionwidth + PADDING;
+      size.width = Math.min(sidebarwidth, 163) + pagewidth + commentwidth + companionwidth + PADDING;
       break;
     }
 

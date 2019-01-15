@@ -3,7 +3,7 @@
   "name": "Ideal Size",
   "short_name": "Ideal Size",
   "description": "Resize the window to the most ideal size",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "applications": {
     "gecko": {
       "id": "idealsize@mozilla.kewis.ch"
@@ -11,11 +11,7 @@
   },
 
   "icons": {
-    "16": "images/addon16.png",
-    "32": "images/addon32.png",
-    "48": "images/addon48.png",
-    "64": "images/addon64.png",
-    "128": "images/addon128.png"
+    "32": "images/addon.svg"
   },
 
   "permissions": [
@@ -24,7 +20,7 @@
   ],
 
   "page_action": {
-    "default_icon": "images/addon64.png",
+    "default_icon": "images/addon.svg",
     "default_title": "Ideal Size",
     "browser_style": false,
     "show_matches": [
@@ -38,7 +34,6 @@
 
   "background": {
     "scripts": [
-      "background/browser-polyfill.min.js",
       "background/background.js"
     ]
   }
