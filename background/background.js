@@ -25,4 +25,24 @@ async function resizeTab(tab) {
   await browser.windows.update(tab.windowId, changeinfo);
 }
 
+async function tabUpdated(tabId, { url }, tab) {
+  let prefs = await browser.storage.local.get({ autoresize: false });
+  if (!prefs.autoresize) {
+    return;
+  }
+
+  let urlmatches = SHOW_MATCHES.map(pattern => {
+    return pattern.replace(/\*/, "");
+  });
+
+  if (url && urlmatches.some(match => url.startsWith(match))) {
+    let windowTabs = await browser.tabs.query({ windowId: tab.windowId });
+    if (windowTabs.length == 1) {
+      // It is the only tab in the window, autoresize.
+      resizeTab(tab);
+    }
+  }
+}
+
 browser.pageAction.onClicked.addListener(resizeTab);
+browser.tabs.onUpdated.addListener(tabUpdated, { urls: SHOW_MATCHES });

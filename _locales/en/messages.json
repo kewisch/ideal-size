@@ -1,0 +1,11 @@
+{
+  "extensionName": {
+    "message": "Ideal Size"
+  },
+  "extensionDescription": {
+    "message": "Resize the window to the most ideal size"
+  },
+  "autoresize": {
+    "message": "Automatically resize if the tab is the only tab in the window"
+  }
+}
