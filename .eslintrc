@@ -4,7 +4,7 @@
     "webextensions": true
   },
   "parserOptions": {
-    "ecmaVersion": 8
+    "ecmaVersion": 13
   },
   "globals": {
     "self": true

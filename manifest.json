@@ -3,7 +3,7 @@
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
   "default_locale": "en",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "applications": {
     "gecko": {
       "id": "idealsize@mozilla.kewis.ch"
@@ -38,7 +38,8 @@
       "https://developer.mozilla.org/*",
       "https://bugzilla.mozilla.org/*",
       "https://github.com/*",
-      "https://www.di.fm/*"
+      "https://www.di.fm/*",
+      "https://*.greenhouse.io/*"
     ]
   },
 
